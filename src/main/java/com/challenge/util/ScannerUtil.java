@@ -2,6 +2,7 @@ package com.challenge.util;
 
 import lombok.experimental.UtilityClass;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,6 +21,18 @@ public class ScannerUtil {
                 numbers.add(scanner.nextInt());
             }
             return k;
+        }
+    }
+
+    public static List<String> readExpressions() {
+        try (Scanner scanner = new Scanner(System.in)) {
+            int numLines = scanner.nextInt();
+            scanner.nextLine();
+            List<String> expressions = new ArrayList<>();
+            for (int i = 0; i < numLines; i++) {
+                expressions.add(scanner.nextLine());
+            }
+            return expressions;
         }
     }
 }
