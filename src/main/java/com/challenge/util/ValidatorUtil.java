@@ -30,7 +30,7 @@ public class ValidatorUtil {
     }
 
     public static void validateIncomingParameters(PolishExpressions polishExpressions) {
-        if(polishExpressions == null) {
+        if (polishExpressions == null || polishExpressions.getExpressions() == null) {
             throw new IllegalArgumentException("'expressions' field must be present");
         }
     }
