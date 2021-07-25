@@ -1,38 +1,46 @@
 package com.challenge.tasks;
 
 import com.challenge.util.ScannerUtil;
-import lombok.extern.slf4j.Slf4j;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
-@Slf4j
 public class Problem2 {
 
     private static final DecimalFormat resultFormat = new DecimalFormat("0.00");
+    private static final List<String> validOperators = Arrays.asList("+", "-", "*", "/");
 
     public static void main(String[] args) {
         List<String> expressions = ScannerUtil.readExpressions();
-        expressions.forEach(Problem2::evaluateExpression);
+        expressions.forEach(expression -> processExpression(expression));
     }
 
-    private static void evaluateExpression(String expression) {
-        List<String> formattedExpression = build(expression);
+    private static void processExpression(String expression) {
+        Optional<String> result = evaluateExpression(expression);
+        if (result.isPresent()) {
+            System.out.println(result.get());
+        } else {
+            System.out.println("error");
+        }
+    }
+
+    private static Optional<String> evaluateExpression(String expression) {
+        List<String> formattedExpression = formatExpression(expression);
         if (!checkIfExpressionIsValid(formattedExpression)) {
-            log.error("error");
-            return;
+            return Optional.empty();
         }
 
-        double result = performEvaluation(formattedExpression);
-        log.info(resultFormat.format(result));
+        return Optional.of(performEvaluation(formattedExpression));
     }
 
 
-    public static List<String> build(String line) {
+    public static List<String> formatExpression(String line) {
         List<String> list = new ArrayList<>();
         String[] tokens = line.split(" ");
         Collections.addAll(list, tokens);
@@ -49,7 +57,7 @@ public class Problem2 {
                 Double.parseDouble(token);
                 numDigits++;
             } catch (NumberFormatException e) {
-                if ("+".equals(token) || "-".equals(token) || "*".equals(token) || "/".equals(token)) {
+                if (validOperators.contains(token)) {
                     numOperators++;
                 } else {
                     return false;
@@ -75,7 +83,7 @@ public class Problem2 {
         }
     }
 
-    private static double performEvaluation(List<String> formattedExpression) {
+    private static String performEvaluation(List<String> formattedExpression) {
         Deque<Double> numbers = new LinkedList<>();
         for (String token : formattedExpression) {
             try {
@@ -84,6 +92,6 @@ public class Problem2 {
                 performOperation(numbers, token);
             }
         }
-        return numbers.pop();
+        return resultFormat.format(numbers.pop());
     }
 }
