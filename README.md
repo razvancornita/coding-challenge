@@ -8,7 +8,7 @@ Task 3 is implemented in the coding-challenge/src/main/java/com/challenge/contro
 
 To build this project, import it as a Maven project, then, in the root location, run the 'mnv clean install' command.
 
-The endpoint can be found at http://localhost:8080/calculatePolishExpression, and requires a RequestBody of the following type:
+The endpoint can be found at http://localhost:8080/calculatePolishExpressions, and requires a RequestBody of the following type:
 
 ```
 {
