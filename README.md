@@ -7,15 +7,16 @@ Task 2 can be found here: coding-challenge/src/main/java/com/challenge/tasks/Pro
 Task 3 is implemented in the coding-challenge/src/main/java/com/challenge/controller/ChallengeController.java class (https://github.com/razvancornita/coding-challenge/blob/main/src/main/java/com/challenge/controller/ChallengeController.java)
 
 To build this project, import it as a Maven project, then, in the root location, run the 'mvn clean install' command.
+JDK 11+ is required.
 
 The endpoint can be found at http://localhost:8080/calculatePolishExpressions, and requires a RequestBody of the following type:
 
 ```
 {
   "expressions": [
-    "+ + 0.5 1.5 * 4 10".
+    "+ + 0.5 1.5 * 4 10",
     "- 2e3 - 700 + 7 * 2 15",
-    "- -1.5 * 3.1415 / -7 -2".
+    "- -1.5 * 3.1415 / -7 -2",
     "100500",
     "1 2",
     "+ 1"
