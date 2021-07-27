@@ -6,7 +6,7 @@ Task 2 can be found here: coding-challenge/src/main/java/com/challenge/tasks/Pro
 
 Task 3 is implemented in the coding-challenge/src/main/java/com/challenge/controller/ChallengeController.java class (https://github.com/razvancornita/coding-challenge/blob/main/src/main/java/com/challenge/controller/ChallengeController.java)
 
-To build this project, import it as a Maven project, then, in the root location, run the 'mnv clean install' command.
+To build this project, import it as a Maven project, then, in the root location, run the 'mvn clean install' command.
 
 The endpoint can be found at http://localhost:8080/calculatePolishExpressions, and requires a RequestBody of the following type:
 
