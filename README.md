@@ -10,7 +10,7 @@ To build this project, import it as a Maven project, then, in the root location,
 
 The endpoint can be found at http://localhost:8080/calculatePolishExpression, and requires a RequestBody of the following type:
 
-'''
+```
 {
   "expressions": [
     "+ + 0.5 1.5 * 4 10".
@@ -21,4 +21,4 @@ The endpoint can be found at http://localhost:8080/calculatePolishExpression, an
     "+ 1"
   ]
 }
-'''
+```
