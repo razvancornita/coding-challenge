@@ -18,7 +18,7 @@ public class ChallengeController {
 
     private final ExpressionService expressionService = new ExpressionService();
 
-    @PostMapping(value = "/calculatePolishExpression")
+    @PostMapping(value = "/calculatePolishExpressions")
     public ResponseEntity<List<String>> calculatePolishExpression(@RequestBody PolishExpressions polishExpressions) {
         log.debug("received calculatePolishExpression request");
         ValidatorUtil.validateIncomingParameters(polishExpressions);
